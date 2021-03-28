@@ -1,0 +1,16 @@
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th width="100">State</th>
+    <th width="225">Number of Customers</th>
+  </tr>
+</thead>
+<tbody>
+  <% @cust_by_state.each do |this| %>
+    <tr>
+      <td><%= this[0] %></td>
+      <td><%= this[1] %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

@@ -1,0 +1,30 @@
+<h2>Dashboard</h2>
+<br />
+<div class="row">
+	<div class="small-7 columns">
+	<div class = "card">
+	<div class = "card-content"><h4>Revenue for Last 4 Months</h4>
+		<%= render :partial => 'partials/rev_table' %>
+	</div>
+	</div>
+	</div>
+	<div class="small-7 columns">
+	<div class = "card">
+	<div class = "card-content">
+	<h4>Top 5 States by Customer</h4>
+	<%= render :partial => 'partials/cust_table' %>
+	</div>
+	</div>
+	</div>
+	
+	<div class="small-7 columns">
+	<div class = "card">
+	<div class = "card-content">
+	<h4>Top 5 Most Sold Items</h4>
+	<%= render :partial => 'partials/most_items' %>
+	</div>
+	</div>
+	</div>
+</div>
+
+

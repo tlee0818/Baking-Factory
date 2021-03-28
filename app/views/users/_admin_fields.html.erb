@@ -1,0 +1,6 @@
+<%= f.input :username, label_html: { class: 'active' } %>
+<% if logged_in? && current_user.role?(:admin) %>
+  <%= f.input :role, collection: User::ROLES, include_blank: true %>
+<% end %>
+<%= f.input :active %>
+

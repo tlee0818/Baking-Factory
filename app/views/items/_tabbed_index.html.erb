@@ -1,0 +1,23 @@
+<div id="tabbed">
+  <tabs>
+
+  
+    <tab name="breads" v-bind:selected="true">
+      <%= render :partial => "items_list", locals: {items: @breads, item_type: 'breads'} %>
+    </tab>
+
+    <tab name="muffins">
+      <%= render :partial => "items_list", locals: {items: @muffins, item_type: 'muffins'} %>
+    </tab>
+
+    <tab name="pastries">
+      <%= render :partial => "items_list", locals: {items: @pastries, item_type: 'pastries'} %>
+    </tab>
+
+  </tabs>
+</div>
+
+<p>&nbsp;</p>
+<% if logged_in? && current_user.role == 'admin' %>
+  <%= render :partial => "partials/add_new_object", locals: {model_name: 'item'} %>
+<% end %>

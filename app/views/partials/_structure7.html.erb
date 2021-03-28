@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col s8">
+    <!-- primary partial gets displayed here in main div -->
+    <%= render partial: "#{primary}", locals: {items: items} %>
+    <!-- sometimes we want another partial below -->
+    <% unless secondary.nil? %>
+      <p>&nbsp;</p>
+      <%= render partial: "#{secondary}" %>
+    <% end %>
+  </div>
+  <div class="col s4">
+    <!-- render the sidebar, if it exists -->
+    <%= render partial: "#{sidebar}" unless sidebar.blank? %>
+  </div>
+</div>
+<%= render :partial => "partials/object_options3", locals: {model_name: model_name, object: Item} %>

@@ -1,0 +1,8 @@
+
+<% if logged_in? && current_user.role == 'admin' %>
+	<%= render :partial => 'admin_home' %>
+<% else %>
+	<%= render :partial => 'general_home' %>
+	<% end %>
+
+

@@ -1,0 +1,44 @@
+<h4><%= item_type.capitalize %></h4>
+
+<% if items.empty? %>
+  <p><em>There are no items of this category at this time.</em></p>
+<% else %>
+
+
+  <table class="table table-striped">
+    <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Units</th>
+        <% if can? :edit, Item %>
+          <th class="align_center">Options</th>
+        <% end %>
+
+    </thead>
+    <% for item in items %>
+      <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= number_to_currency item.current_price %></td>
+        <td><%= item.units_per_item %> <%= item_type == 'breads' ? 'loaf' : item_type %></td>
+
+        <td class="align_center">
+          <% if can? :edit, item %>
+            <%= link_to edit_item_path(item) do %>
+                  <i class="material-icons">edit</i>
+              <% end %>
+              &nbsp;&nbsp;&nbsp;&nbsp; 
+            <% end %>
+            <% if can? :destroy, item %>
+              <%= link_to(item_path(item), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                  <i class="material-icons">delete</i>
+              <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="supertiny"></p>
+  <br />
+  <%= will_paginate items, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>
+

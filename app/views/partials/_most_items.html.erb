@@ -1,0 +1,16 @@
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th width="100">Item Name</th>
+    <th width="225">Quantity</th>
+  </tr>
+</thead>
+<tbody>
+  <% @most_sold.each do |this| %>
+    <tr>
+      <td><%= this[0].name %></td>
+      <td><%= this[1] %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

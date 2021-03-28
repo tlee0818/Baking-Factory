@@ -1,0 +1,20 @@
+
+<% if logged_in? && current_user.role == 'admin' %>
+    <%= render partial: "partials/structure4", locals: {model_name: "item", 
+                                                            object: @item,
+                                                            primary: "item_data", 
+                                                            secondary: nil,
+                                                            sidebar: nil} %>
+
+<% else %>
+    <%= render partial: "partials/structure2", locals: {model_name: "item", 
+                                                            object: @item,
+                                                            primary: "item_data", 
+                                                            secondary: nil,
+                                                            sidebar: "similar_items"} %>
+
+<% end %>
+
+
+
+

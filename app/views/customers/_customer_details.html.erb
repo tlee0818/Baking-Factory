@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-content">
+    <h3 id = "bestinplace"><%= best_in_place @customer, :first_name, as: :input %> <%= best_in_place @customer, :last_name, as: :input %></h3><br />
+
+    <b>Phone:&nbsp;&nbsp;</b>
+      <div id = "bestinplace"><%= best_in_place @customer, :phone, as: :input %></div><br />
+    <b>Email:&nbsp;&nbsp;</b>
+      <div id = "bestinplace"><%= best_in_place @customer, :email, as: :input %></div><br />
+
+    <b>Active: &nbsp;&nbsp;</b>
+      <%= @customer.active ? "Yes" : "No" %>
+      <br><br>
+
+    <p>
+      <em>A Baking Factory customer since <%= @customer.created_at.year %>.</em>
+    </p>
+  </div>
+</div>

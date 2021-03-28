@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-content">
+    <div id = "bestinplace"><h5><b>Recipient</b>: <%= best_in_place @address, :recipient, as: :input %></h5><br /></div>
+
+    <b>Address:&nbsp;&nbsp;</b><br>
+      <div id = "bestinplace"><%= best_in_place @address, :street_1, as: :input %></div>
+      <% if (!@address.street_2.blank?) %>
+        <div id = "bestinplace"><%= best_in_place @address, :street_2, as: :input %></div>
+      <% end %>
+
+      <div id = "bestinplace"><%= best_in_place @address, :city, as: :input %>, <%= best_in_place @address, :state, as: :input %> <%= best_in_place @address, :zip, as: :input %></div><br />
+      <b>Billing: &nbsp;&nbsp;</b>
+      <%= @address.is_billing ? "Yes" : "No" %>
+      <br>
+      <br>
+    <b>Active: &nbsp;&nbsp;</b>
+      <%= @address.active ? "Yes" : "No" %>
+      <br>
+  </div>
+</div>

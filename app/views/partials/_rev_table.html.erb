@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="100">Month</th>
+        <th width="225">Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>January</td>
+          <td><%= number_to_currency(@jan_rev) %></td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td><%= number_to_currency(@feb_rev) %></td>
+        </tr>
+        <tr>
+          <td>March</td>
+          <td><%= number_to_currency(0) %></td>
+        </tr>
+        <tr>
+          <td>April</td>
+          <td><%= number_to_currency(@apr_rev) %></td>
+        </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,39 @@
+<div id="tabbed">
+  <tabs>
+
+    <% if logged_in? && current_user.role == 'baker'%>
+    <tab name="breads" v-bind:selected="true">
+        <%= render :partial => "todo_list", locals: {items: @breads_todo, item_type: 'breads'} %>
+    </tab>
+
+    <tab name="muffins">
+        <%= render :partial => "todo_list", locals: {items: @muffins_todo, item_type: 'muffins'} %>
+    </tab>
+
+    <tab name="pastries">
+        <%= render :partial => "todo_list", locals: {items: @pastries_todo, item_type: 'pastries'} %>
+    </tab>
+    <% end %>
+    
+    <% if logged_in? && current_user.role == 'shipper'%>
+        <tab name="breads" v-bind:selected="true">
+        <%= render :partial => "todo_list", locals: {items: @breads_toship, item_type: 'breads'} %>
+        </tab>
+
+        <tab name="muffins">
+        <%= render :partial => "todo_list", locals: {items: @muffins_toship, item_type: 'muffins'} %>
+        </tab>
+
+        <tab name="pastries">
+        <%= render :partial => "todo_list", locals: {items: @pastries_toship, item_type: 'pastries'} %>
+        </tab>
+    <% end %>
+   
+
+  </tabs>
+</div>
+
+<p>&nbsp;</p>
+<% if logged_in? && current_user.role == 'admin' %>
+  <%= render :partial => "partials/add_new_object", locals: {model_name: 'item'} %>
+<% end %>

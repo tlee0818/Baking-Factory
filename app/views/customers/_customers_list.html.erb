@@ -1,0 +1,35 @@
+<% if customers.empty? %>
+  <p>There are no <%= state.downcase %> customers at this time.</p>
+<% else %>
+
+  <table class="striped highlight">
+    <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th class="align_center">Options</th>
+    </thead>
+    <% for customer in customers %>
+      <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+
+        <td><%= link_to customer.name, customer_path(customer) %></td>
+        <td><%= number_to_phone customer.phone %></td>
+        <td><%= mail_to customer.email, customer.email, encode: "javascript"  %></td>
+
+
+      <td class="align_center">
+        <% if can? :edit, customer %>
+          <%= link_to edit_customer_path(customer) do %>
+                <i class="material-icons">edit</i>
+            <% end %>
+            &nbsp;&nbsp;&nbsp;&nbsp; 
+          <% end %>
+
+      </td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="supertiny"></p>
+  <br />
+  <%= will_paginate customers, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>

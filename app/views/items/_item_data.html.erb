@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-content">
+    <h4><%= @item.name %></h4><br />
+
+    <% unless @item.picture.blank? %>
+        <%= image_tag(@item.picture)%><br /><br />
+    <% end %>
+        <b>Description:&nbsp;&nbsp;</b>
+        <%= @item.description%><br /><br />
+
+        <b>Weight (lbs):&nbsp;&nbsp;</b>
+        <%= @item.weight%><br /><br />
+
+        <b>Price:&nbsp;&nbsp;</b>
+        <%= number_to_currency(@item.current_price) %><br />
+  </div>
+</div>

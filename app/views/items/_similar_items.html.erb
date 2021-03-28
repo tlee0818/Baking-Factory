@@ -1,0 +1,19 @@
+
+  <div class="panel clearfix">
+  <h3>Similar Items</h3>
+  <table>
+    <thead>
+      <tr>
+        <th width="120">Name</th>
+        <th width="100">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @similar_items.each do |item| %>
+      <tr>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= number_to_currency item.current_price %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

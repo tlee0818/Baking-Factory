@@ -1,0 +1,18 @@
+
+  <h4>Orders Items</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="100">Name</th>
+        <th width="225">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orderitems.each do |item| %>
+        <tr>
+          <td><%= link_to item.item.name, item_path(item.item) %></td>
+          <td><%= item.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

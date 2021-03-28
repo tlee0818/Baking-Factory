@@ -1,0 +1,14 @@
+
+<% if logged_in? && (current_user.role == 'baker' ||current_user.role == 'shipper') %>
+<%= render partial: "partials/structure5", locals: {model_name: "item",
+                                                        object: @item,
+                                                         primary: "todo_tabbed", 
+                                                         secondary: nil,
+                                                         sidebar: nil} %>
+
+<% else %>
+<%= render partial: "partials/structure1", locals: {model_name: "item", 
+                                                         primary: "tabbed_index", 
+                                                         secondary: nil,
+                                                         sidebar: "partials/item_search_bar"} %>
+<% end %>

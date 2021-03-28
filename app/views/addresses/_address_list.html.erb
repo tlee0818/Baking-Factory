@@ -1,0 +1,45 @@
+<h4><%= state.capitalize %> Addresses</h4>
+
+<% if addresses.empty? %>
+  <p>There are no <%= state.downcase %> addresses at this time.</p>
+<% else %>
+
+  <table class="striped highlight">
+    <thead>
+        <th>Customer</th>
+        <th>Recipient</th>
+        <th>Address</th>
+        <th>Billing</th>
+        <th class="align_center">Options</th>
+    </thead>
+    <% for address in addresses %>
+      <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+
+        <td><%= link_to address.customer.proper_name, address_path(address.customer) %></td>
+        <td><%= address.recipient %></td>
+        <td>
+          <%= render :partial => "partials/address_info", locals: {address: address} %>
+        </td>
+        <td align="center"><%= address.is_billing ? "Yes" : "No" %></td>      
+
+
+      <td class="align_center">
+        <% if can? :edit, address %>
+          <%= link_to edit_address_path(address) do %>
+                <i class="material-icons">edit</i>
+            <% end %>
+            &nbsp;&nbsp;&nbsp;&nbsp; 
+          <% end %>
+          <% if can? :destroy, address %>
+            <%= link_to(address_path(address), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+                <i class="material-icons">delete</i>
+            <% end %>
+          <% end %>
+      </td>
+      </tr>
+    <% end %>
+  </table>
+  <p class="supertiny"></p>
+  <br />
+  <%= will_paginate addresses, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>

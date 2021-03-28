@@ -1,0 +1,12 @@
+
+<% if logged_in? && current_user.role = 'admin' %>
+<%= render partial: "partials/structure1", locals: {model_name: "customer", 
+                                                         primary: "tabbed_index", 
+                                                         secondary: nil,
+                                                         sidebar: "partials/title_with_search"} %>
+<% else %>
+<%= render partial: "partials/structure1", locals: {model_name: "customer", 
+                                                         primary: "tabbed_index", 
+                                                         secondary: nil,
+                                                         sidebar: nil} %>
+<% end %>
